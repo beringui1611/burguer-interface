@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 
 
 import Category from '../../assets/Category.svg'
-import { Container, CategoryImg, ContainerItens, Image, Button } from "./style";
+import { Container, CategoryImg, ContainerItens, Image,Button } from "./style";
 import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
+
+
 
 
 export function CategoryCarrossel() {
@@ -41,7 +43,7 @@ export function CategoryCarrossel() {
                     categories.map(category => (
                         <ContainerItens key={category.id}>
                             <Image src={category.url} alt="foto da categoria" />
-                            <Button>{category.name }</Button>
+                            <Button to={{ pathname: '/produtos' }}>{category.name }</Button>
                         </ContainerItens>
                     ))}
 </Carousel>

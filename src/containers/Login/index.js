@@ -8,7 +8,7 @@ import { useUser } from '../../hooks/UserContext'
 import { Link, useHistory } from 'react-router-dom'
 
 
-import { Button } from '../../components/'
+import { Button, ErrorMessage } from '../../components/'
 import {
   Container,
   ImageLogin,
@@ -16,8 +16,7 @@ import {
   P,
   Input,
   SignInLink,
-  Logo,
-  ErrorMessage
+  Logo
   
 } from './styles'
 
@@ -58,10 +57,16 @@ export function Login() {
       }
     )
     putUserData(data)
-
+    
+    
     setTimeout(() => {
-      history.push('/')
-    }, 1000)
+      if (data.admin) {
+        history.push('/pedidos')
+      } else {
+        history.push('/')
+      }
+ 
+    },1000)
 
    
     

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
 background-color: #EFEFEF;
@@ -40,7 +40,7 @@ width: 200px;
 border-radius: 10px;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
 margin-top: 16px;
 border-radius: 8px;
 background: #9758A6;
@@ -55,6 +55,7 @@ font-style: normal;
 font-weight: 700;
 line-height: 100%;
 cursor: pointer;
+text-decoration: none;
 
 &:hover{
     opacity: 0.8;

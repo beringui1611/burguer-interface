@@ -6,7 +6,7 @@ import api from '../../services/api'
 import { Link } from 'react-router-dom'
 
 
-import {Button} from '../../components'
+import {Button, ErrorMessage} from '../../components'
 import {
   Container,
   ImageRegister,
@@ -14,8 +14,7 @@ import {
   P,
   Input,
   SignInLink,
-  Logo,
-  ErrorMessage
+  Logo
   
 } from './styles'
 

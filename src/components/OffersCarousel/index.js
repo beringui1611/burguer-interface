@@ -6,9 +6,11 @@ import { Container, CategoryImg, ContainerItens, Image, Button } from "./style";
 import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
 import formatCurrency from "../../utils/formatCurrency";
-
+import {useCart} from '../../hooks/CartContext'
 
 export function OffersCarousel() {
+
+    const {putProductInCart} = useCart()
 
     const [offers, setOffers] = useState([])
 
@@ -48,7 +50,7 @@ export function OffersCarousel() {
                            <Image src={product.url} alt="foto do produto" />
                            <p> {product.name}</p>
                            <p> {product.formatedPrice}</p>
-                            <Button>Peça Agora</Button>
+                            <Button to={{pathname:'/carrinho'}} onClick={() => putProductInCart(product)}>Peça Agora</Button>
                         </ContainerItens>
                     ))}
 </Carousel>

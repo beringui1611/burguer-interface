@@ -1,32 +1,33 @@
-import React from "react";
-
-
+import React from 'react'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
 
-import { Login, Home, Products, Register, Cart } from "../containers";
+import { Home, Products, Register, Login, Cart, Admin } from '../containers'
 import PrivateRoute from './private-route'
-
-
+import path from '../constants/path'
 
 function Routes() {
-    return (
-     
-        <Router>
-            <Switch>
-                <Route component={Login} path="/login" />
-                <Route component={Register} path="/cadastro" />
-                <PrivateRoute exact component={Home} path="/" />
-                <PrivateRoute component={Products} path="/produtos" />
-                <PrivateRoute  component={Cart } path="/carrinho" />
-            </Switch>
-        </Router>
+  return (
+    <Router>
+      <Switch>
+        <Route component={Login} path="/login" />
+        <Route component={Register} path="/cadastro" />
+        <PrivateRoute exact component={Home} path="/" />
+        <PrivateRoute component={Products} path="/produtos" />
+        <PrivateRoute component={Cart} path="/carrinho" />
 
 
+        <PrivateRoute component={Admin} path={path.Order} isAdmin />
+        <PrivateRoute component={Admin} path={path.Products} isAdmin />
+        <PrivateRoute component={Admin} path={path.NewProducts} isAdmin />
+        <PrivateRoute component={Admin} path={path.EditProducts} isAdmin />
+              
 
- )
-    
+
+       
+      </Switch>
+    </Router>
+  )
 }
-
 
 export default Routes

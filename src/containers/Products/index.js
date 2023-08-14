@@ -6,16 +6,14 @@ import ProductsLogo from '../../assets/product.svg'
 import { Container, ProductsImg, CategoryButton, Menu, ProductsContainer } from './style'
 import {CardProduct} from '../../components'
 import formatCurrency from '../../utils/formatCurrency'
-
+import PropTypes from'prop-types'
 
 
 
 
 
 export function Products() {
-
-
-
+ 
 
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
@@ -97,3 +95,7 @@ export function Products() {
     )
 }
 
+
+Products.propTypes = {
+    children: PropTypes.string
+}
